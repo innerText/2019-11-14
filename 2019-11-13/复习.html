@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 
+    ()分组
+    应用：
+    1.replace 
+    2.match
+    通过分组能够得到更加具体的字符分组是从左往又数 
+    ((((((((((((((((((((()))))))))))))))))))))
+    注意：(\d)+  这个\d代表最后一个数字
+    比如155156  也就是6
+
+    replace回调函数的参数
+    ?=    前瞻仰
+    ?<=   后瞻仰
+    ?!    负前瞻仰
+    ?<!   负后瞻仰
+    
+    
+     */
+
+
+     let str='中国人美国人德国人中国人越南人非洲人中共高官人'
+
+     //用正则搞一下
+     console.log(str.replace(/中国人/g,($)=>$.substr(0,2)+'神'))
+    
+    // 匹配项是括号的后面（后瞻仰）
+    let str2 = '中国人美国人德国人中国人越南人非洲人中共高官人'
+    console.log(str2.replace(/(?<=中国)人/g,'神'))
+    let str3 = '中国人美国人德国人中国人越南人非洲人中共高官人'
+    console.log(str3.replace(/中国(?=人)/g,'神'))
+    </script>
+</body>
+</html>

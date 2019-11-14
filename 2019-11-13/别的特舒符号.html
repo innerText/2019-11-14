@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 
+    手机号
+    
+    QQ号
+     */
+    let str = '13165456131'
+    console.log(/^1[0-9]\d{9}$/.test(str))
+
+
+    let str2 = '1316545613'
+    console.log(/^[1-9]\d{4,9}$/.test(str2))
+    
+     /*
+        英文的字符串开头有一个边界符，字母与字母之间是没有边界符的
+        中英文结合的情况下中文的左边有边界符，右边没有边界符
+        中文的的符号左右两边都有边界符（前提是整个字符串都不能是中文）
+        整个字符串都是中文，是没有边界符的
+
+        getByClassName
+        querySele...
+
+        className
+
+        <li class="active clear"></li>
+
+        li[i].className === 'active'
+
+
+    */
+    let str = '中国龙'; //|
+
+    // console.log(str.replace(/\b/g,'|'))
+    //掉前后空格的
+
+// let str = '    d n s 中文 12 —_^  ';
+// console.log(str);//.trim()
+
+// for(let i=0;i<str.length;i++){
+//     if(str[i] !== ' '){
+//         console.log(str.substring(i));
+//         break;
+//     }
+// }
+
+//    console.log( str.replace(/^\s+|\s+$/g,'') );
+
+    
+    </script>
+</body>
+</html>
