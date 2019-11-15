@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 
+    千分符
+    1000000->1,000,000
+    000,000
+    000
+    
+     */
+     
+// console.log(/\d(?=\d{3})/.exec(str));//1
+
+//  console.log(str.match(/(\d)(?=\d{3})+/g))//["1", "0", "0", "0"]
+//  console.log(str.replace(/(\d)(?=(\d{3})+$)/g,'$1,'));//1,000,000
+//  console.log(str.replace(/(\d)((?=(\d{3})+$))/g,function($0,$1,$2,$3){
+//     console.log($3);
+// }));
+//从后往前找，把三个数字前面的数字后加上一个，号
+
+/* 
+(?=(\d){3})+ ->找3个数字前面的什么东西？这种情况可以出现多次
+加了$的意思是从结尾开始找（从字符串的最后开始查找）
+
+ */
+// console.log(str.replace(/(\d)(?=(\d{3})+$)/g,'$1,'))//1,000,000
+let str ='1000000';
+let num=0
+let temp=''
+ for(let i=str.length-1;i>=0;i--){
+        if((temp.length-num)%3){
+            temp += str[i];
+
+        }else{
+            console.log(str[i])
+            temp += ',' +str[i];
+            num++;
+
+        }
+    }
+    console.log(temp);//,000,000,1
+    temp = temp[0]===','?temp.substring(1):temp;
+    temp = temp.substring(1);
+    temp = temp.split('').reverse().join('');
+
+    console.log(temp);//1,000,00
+
+
+    // console.log('xyy,xoo,x88,x45'.match(/(x)(?=(\d{2})$)/g));
+    </script>
+</body>
+</html>
