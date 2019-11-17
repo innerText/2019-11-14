@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /* 
+    let obj = {
+    //     name:'小明',
+    //     age:18,
+    //     say:'好好学习，天天向上'
+    // }  
+     */
+// let str = '我的名字叫${name},年龄是${age}岁,我想说:${say}';
+//     let i = 0;
+//     let ary = ['壹','贰','叁']
+//     let s = str.replace(/\${(\w+)}/g,(...arg)=>{
+//         // console.log(arg)
+//         // let [,key] = arg; 
+//         // return obj[key];
+//         return ary[i++];
+//     });
+//     console.log(s);
+    
+    
+    let str2 = 'hdd82nxa89a3axdma2naejaaxaa8n2xdanja2cah2hnadhioamwajexnad8mdahiodn';
+    
+    let str = '112343454trfgdgfgdkfljsldhaslkdsssss11111111123344fffff';
+  let ary= str.split('').sort().join('').match(/([a-z|\d])\1+/g)
+   ary.sort((a,b)=>{
+      return b.length-a.length
+  });
+  console.log( ary[0].length);//出现最多的个数11
+  console.log(ary[0][0]);//出现最多次数的是1
+
+    console.log(str.split('').sort().join(''))
+    console.log(ary);
+    </script>
+</body>
+</html>
