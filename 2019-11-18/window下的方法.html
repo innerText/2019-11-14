@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 100px;
+        }
+
+        #box2 {
+            background: red;
+            position: relative;
+        }
+
+        #box3 {
+            position: absolute;
+            background: coral;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body style="height:2000px">
+
+        <div>
+            <div id="box2">
+                <div id="box3"></div>
+            </div>
+        </div>
+        <script>
+        /* 
+        DOM:获取可视区的高/宽
+        document.doumentElement.
+        chientHeight
+        document.doumentElement.
+        clientWidth 如果有滚动条，会减去滚动条的宽度
+
+        element.gerBoundingClientRect() 他返回的是一个对象，这个对象下放的是元素的绝对位置。
+
+        document.documentElement.dcrollTop
+
+
+        BOM 
+
+        window.innerHeight
+        window.innerWidth,如果有滚动条，不会减去滚动条的宽度
+
+
+        window.pageXOffset/
+        wundow.pageYOffset 滚动条的距离
+         */
+        console.log(document.documentElement.clientWidth)
+        console.log(innerWidth);
+
+
+        
+
+        console.dir(box3.getBoundingClientRect());
+        window.onscroll=function(){
+            console.log(window.pageYOffset)
+        }
+        
+        
+        </script>
+    </body>
+
+</html>
