@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            padding:100px;
+        }
+        #box{
+            background: red;;
+        }
+        #box1{
+            background:slateblue;
+        }
+        #box2{
+            background:teal;
+        }
+        #btn{
+            background:tomato;
+        }
+        </style>
+</head>
+<body>
+        <div id="box">
+                <div id="box1">
+                    <div id="box2">
+                        <button id="btn">按钮</button>
+                    </div>
+                </div>
+            </div>
+    <script>
+    box.onclick = function(){
+        alert('box')
+    }
+    box.onclick = function(){
+        alert('box1')
+    }
+    box.onclick = function(){
+        alert('box2')
+    }
+    btn.onclick = function(){
+        alert('btn')
+        ev.stopPropagation();
+    }
+    window.onclick = function(){
+        alert('window')
+    }
+    
+    
+    
+    
+    </script>
+</body>
+</html>
