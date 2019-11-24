@@ -41,39 +41,60 @@ ev.datail
 //     console.log(1)
 // }`
 
-function addWhell(obj,cb){
-    if(obj.onmousewheel === null){//说明有这个事件
-    obj.onmousewheel = listen;
+// function addWhell(obj,cb){
+//     if(obj.onmousewheel === null){//说明有这个事件
+//     obj.onmousewheel = listen;
 
-    }else{
-        obj.addEventListener('DOMMouseScroll',listen);
-    }
-    function listen(ev){
-        let o = false;//默认是向下，true向上
-        //使上下方向统一
-        if(ev.whellDelta){//chrome
-            o = ev.whellDelta > 0? true : false;
-        }
-        cb.call(this,o);
-    }
-}
+//     }else{
+//         obj.addEventListener('DOMMouseScroll',listen);
+//     }
+//     function listen(ev){
+//         let o = false;//默认是向下，true向上
+//         //使上下方向统一
+//         if(ev.whellDelta){//chrome
+//             o = ev.whellDelta > 0? true : false;
+//         }
+//         cb.call(this,o);
+//     }
+// }
  
- addWhell(box,function(o){
-     console.log(1)
-     let {width,height} = getComputedStyle(this);
-     console.log(width)
-     if(o){
-         this.style.width = parseFloat(width) + 5 + 'px';
-         this.style.height = parseFloat(height) + 5 + 'px';
-     }else{
-         this.style.width = parseFloat(width) - 5 + 'px';
-         this.style.height = parseFloat(height) - 5 + 'px';
-     }
- });
+//  addWhell(box,function(o){
+//      console.log(1)
+//      let {width,height} = getComputedStyle(this);
+//      console.log(width)
+//      if(o){
+//          this.style.width = parseFloat(width) + 5 + 'px';
+//          this.style.height = parseFloat(height) + 5 + 'px';
+//      }else{
+//          this.style.width = parseFloat(width) - 5 + 'px';
+//          this.style.height = parseFloat(height) - 5 + 'px';
+//      }
+//  });
 
 
 
+window.addEventListener('DOMMouseScroll',function(ev){
+        // console.dir(ev)
+        if(ev.detail > 0){
+            console.log('下')
+        }else{
+            console.log('上')
+        }
+    })
 
+
+    window.onmousewheel = function(ev){
+        console.log(111)
+        // console.log(ev.wheelDelta);
+        if(ev.wheelDelta > 0){
+            console.log('上');
+            box.style.top = box.offsetTop - 5 + 'px';
+        }else{
+            // console.log('下');
+            console.log(box.offsetTop)
+            box.style.top = box.offsetTop + 5 + 'px';
+        }
+    }
 
 </script>
 </body>
