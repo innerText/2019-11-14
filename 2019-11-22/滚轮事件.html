@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background: lightseagreen;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div id="box"></div>
+<script>
+/* 
+onscroll  滚动条改变的时候触发
+onmousewhel  滚轮事件
+
+
+ev.whellDelta 检测滚动的方向
+大于0就是向上的
+小于0就是向下的
+
+FF：DOMMouseScroll
+注意 这个事件只能使用事件绑定的方式去写
+ev.datail
+大于0就是向下的
+小于0就是想上的
+
+ */
+//onscroll = function(){
+//     console.log(1)
+// }`
+
+function addWhell(obj,cb){
+    if(obj.onmousewheel === null){//说明有这个事件
+    obj.onmousewheel = listen;
+
+    }else{
+        obj.addEventListener('DOMMouseScroll',listen);
+    }
+    function listen(ev){
+        let o = false;//默认是向下，true向上
+        //使上下方向统一
+        if(ev.whellDelta){//chrome
+            o = ev.whellDelta > 0? true : false;
+        }
+        cb.call(this,o);
+    }
+}
+ 
+ addWhell(box,function(o){
+     console.log(1)
+     let {width,height} = getComputedStyle(this);
+     console.log(width)
+     if(o){
+         this.style.width = parseFloat(width) + 5 + 'px';
+         this.style.height = parseFloat(height) + 5 + 'px';
+     }else{
+         this.style.width = parseFloat(width) - 5 + 'px';
+         this.style.height = parseFloat(height) - 5 + 'px';
+     }
+ });
+
+
+
+
+
+</script>
+</body>
+
+</html>

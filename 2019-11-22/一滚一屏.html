@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一滚一屏</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+html,body{
+    overflow: hidden;
+  
+}
+#ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 3s;
+}
+</style>
+</head>
+<body>
+<ul id="ul">
+
+ </ul>  
+   <script>
+    let ary =['lightblue','tomato','orange','yellow','hotpink','skyblue'];
+   const w = window.innerWidth;
+   const h = window.innerHeight;
+   let html = ary.map(item=>`<li style="width:${w}px;height:${h}px;background:${item}"> </li>`).join('');
+   ul.innerHTML = html;
+   console.log(html);
+   let num = 0;
+   
+   document.addEventListener('mousewheel',throttling(fn,200));
+        function fn(ev){
+                 console.log(ev);
+                 if(ev.wheelDelta>0){
+                      num++
+                  if(num>5){
+                     num=5;
+                     
+                  }
+                   
+                 }else{
+                     num--
+                    if(num<0){
+                        num=0;
+                    } 
+                    
+                 }
+            ul.style.top = -num*h+'px';
+   }
+   
+   //由于滚动的太快 来一波节流操作
+
+     function throttling(cb,time){
+           let prevtime = 0;
+         return function(...arg){
+            let nowtime = +new Date;
+            console.log(nowtime);
+            
+             if(nowtime-prevtime>time){
+               cb.call(this,...arg);
+             }  
+             prevtime = nowtime;
+
+         }
+         
+     }
+
+                  
+    
+    
+    
+    
+    </script>
+</body>
+</html>
